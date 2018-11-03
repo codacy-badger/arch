@@ -1,0 +1,17 @@
+{
+  "name": "@arch/registry",
+  "version": "0.1.0",
+  "main": "index.ts",
+  "dependencies": {
+    "@arch/contracts": "0.1.0",
+    "reflect-metadata": "^0.1.12"
+  },
+  "scripts": {
+    "test": "mocha -r ts-node/register test/*Test.ts"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "ts-node": "^7.0.1"
+  }
+}
