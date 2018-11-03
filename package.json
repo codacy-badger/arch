@@ -38,6 +38,10 @@
     "extension": [
       ".ts",
       ".tsx"
-    ]
+    ],
+    "include": [
+      "packages/**/src/**/*.ts"
+    ],
+    "all": true
   }
 }
