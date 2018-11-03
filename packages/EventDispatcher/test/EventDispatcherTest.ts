@@ -1,9 +1,10 @@
 import { expect } from 'chai';
 import {EventDispatcher} from "..";
 import {EventListenerInterface} from "../src/EventListenerInterface";
+import {EventListener} from "../src/Decorator/EventListener";
 
 describe('EventDispatcherTest', () => {
-
+  @EventListener('foo')
   class FooEventListener implements EventListenerInterface {
     public handle() {
       return true;
