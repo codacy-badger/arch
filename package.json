@@ -4,7 +4,7 @@
   "private": true,
   "description": "A collection of components for building server-side TypeScript applications",
   "scripts": {
-    "lint": "tslint packages/**/src/**/*.ts",
+    "lint": "tslint -c tslint.json 'packages/**/src/**/*.ts'",
     "test": "nyc mocha -r ts-node/register packages/**/test/**Test.ts",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },

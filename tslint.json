@@ -1,4 +1,10 @@
 {
-  "defaultSeverity": "error",
-  "extends": ["tslint:recommended"]
+  "extends": [
+    "tslint:recommended"
+  ],
+  "rules": {
+    "ordered-imports": [false],
+    "interface-name": [false],
+    "quotemark": [false]
+  }
 }
