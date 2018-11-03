@@ -1,5 +1,5 @@
 {
-  "name": "@arch/contracts",
+  "name": "@arch/event-dispatcher",
   "version": "0.1.0",
   "main": "index.ts",
   "private": true

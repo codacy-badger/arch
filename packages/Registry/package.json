@@ -2,6 +2,7 @@
   "name": "@arch/registry",
   "version": "0.1.0",
   "main": "index.ts",
+  "private": true,
   "dependencies": {
     "@arch/contracts": "0.1.0",
     "reflect-metadata": "^0.1.12"
