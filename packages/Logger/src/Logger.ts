@@ -4,6 +4,10 @@ import {Record} from "./Record";
 import {ProcessorInterface} from "./Processor/ProcessorInterface";
 
 export class Logger implements LoggerInterface {
+  public static getLevelName(level: LogLevel) {
+    return LogLevel[level];
+  }
+
   public constructor(
     protected name: string,
     protected handlers: HandlerInterface[]     = [],
@@ -89,9 +93,5 @@ export class Logger implements LoggerInterface {
     });
 
     return true;
-  }
-
-  public static getLevelName(level: LogLevel) {
-    return LogLevel[level];
   }
 }
