@@ -16,7 +16,7 @@ describe('LineFormatterTest', () => {
 
     it('should properly format a simple line', () => {
       const formatter = new LineFormatter();
-      expect(formatter.format(record)).to.equal('[2018-10-27] test.ERROR: Foobar');
+      expect(formatter.format(record)).to.equal(`[${new Date().toLocaleDateString()}] test.ERROR: Foobar`);
     });
   });
 });
