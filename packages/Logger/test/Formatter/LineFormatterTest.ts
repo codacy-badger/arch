@@ -8,7 +8,7 @@ describe('LineFormatterTest', () => {
     const record: Record = {
       channel: 'test',
       context: {},
-      datetime: new Date(2018, 9, 27),
+      datetime: new Date(),
       extra: {},
       level: LogLevel.ERROR,
       message: 'Foobar',
