@@ -6,7 +6,7 @@ import {ProcessorInterface} from "./Processor/ProcessorInterface";
 export class Logger implements LoggerInterface {
   public constructor(
     protected name: string,
-    protected handlers: HandlerInterface[] = [],
+    protected handlers: HandlerInterface[]     = [],
     protected processors: ProcessorInterface[] = []) {
   }
 
@@ -89,5 +89,9 @@ export class Logger implements LoggerInterface {
     });
 
     return true;
+  }
+
+  public static getLevelName(level: LogLevel) {
+    return LogLevel[level];
   }
 }

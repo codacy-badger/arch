@@ -8,7 +8,7 @@ describe('LineFormatterTest', () => {
     const record: Record = {
       channel: 'test',
       context: {},
-      datetime: new Date(),
+      datetime: new Date(2018, 9, 27),
       extra: {},
       level: LogLevel.ERROR,
       message: 'Foobar',
@@ -16,7 +16,7 @@ describe('LineFormatterTest', () => {
 
     it('should properly format a simple line', () => {
       const formatter = new LineFormatter();
-      expect(formatter.format(record)).to.equal('Foobar');
+      expect(formatter.format(record)).to.equal('[2018-10-27] test.ERROR: Foobar');
     });
   });
 });
