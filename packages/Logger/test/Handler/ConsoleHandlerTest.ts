@@ -7,7 +7,7 @@ describe('ConsoleHandlerTest', () => {
   describe('#handle', () => {
     it('should properly log to console', () => {
       const spy = sinon.spy(console, 'log');
-      const handler = new ConsoleHandler(console);
+      const handler = new ConsoleHandler();
       handler.handle(ExampleRecord);
       expect(spy.called).to.be.true;
     });
