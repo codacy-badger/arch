@@ -1,13 +1,13 @@
 import { expect } from 'chai';
-import {ProcessIdProcessor} from "../../src/Processor/ProcessIdProcessor";
 import {ExampleRecord} from "../Fixtures/ExampleRecord";
+import {VoidProcessor} from "../../src/Processor/VoidProcessor";
 
 describe('ProcessIdProcessorTest', () => {
   describe('#processRecord', () => {
-    it('should add pid to extra', () => {
-      const processor = new ProcessIdProcessor();
+    it('should do nothing to the record', () => {
+      const processor = new VoidProcessor();
       const processedRecord = processor.processRecord(ExampleRecord);
-      expect(processedRecord.extra.pid).to.equal(process.pid);
+      expect(processedRecord).to.equal(ExampleRecord);
     });
   });
 });
