@@ -5,6 +5,7 @@ import {LogLevel} from "@arch/contracts";
 import {VoidHandler} from "../src/Handler/VoidHandler";
 import * as sinon from 'sinon';
 import {VoidProcessor} from "../src/Processor/VoidProcessor";
+import {HandlerInterface} from "../src/Handler/HandlerInterface";
 
 describe('LoggerTest', () => {
   describe('#constructor(), #getName()', () => {
@@ -50,11 +51,12 @@ describe('LoggerTest', () => {
 
   describe('#log()', () => {
     it('should properly delegate log calls', () => {
-      const logger = new Logger('test');
+      const logger = new Logger('foobar');
       const spy = sinon.spy(logger, 'log');
       const context = { foo: 'bar' };
       logger.addHandler(new VoidHandler());
       logger.info('info message', context);
+      logger.error('error message', context);
       logger.emergency('emergency message', context);
       logger.debug('debug message', context);
       logger.critical('critical message', context);
@@ -68,6 +70,27 @@ describe('LoggerTest', () => {
       expect(spy.calledWith(LogLevel.NOTICE, 'notice message', { foo: 'bar' })).to.be.true;
       expect(spy.calledWith(LogLevel.ALERT, 'alert message', { foo: 'bar' })).to.be.true;
       expect(spy.calledWith(LogLevel.WARNING, 'warning message', { foo: 'bar' })).to.be.true;
+      expect(spy.calledWith(LogLevel.ERROR, 'error message', { foo: 'bar' })).to.be.true;
+    });
+  });
+
+  describe('#addRecord', () => {
+    it('should not handle anything without a proper handler', () => {
+      const logger = new Logger('foobar');
+      logger.addHandler(new class implements HandlerInterface {
+        handle() {}
+        isHandling(level: LogLevel) {
+          return level.toFixed() >= LogLevel.ERROR.toFixed();
+        }
+      });
+      logger.addHandler(new class implements HandlerInterface {
+        handle() {}
+        isHandling(level: LogLevel) {
+          return level.toFixed() === LogLevel.ERROR.toFixed();
+        }
+      });
+      expect(logger.addRecord(LogLevel.WARNING, 'warning')).to.be.false;
+      expect(logger.addRecord(LogLevel.ERROR, 'error')).to.be.true;
     });
   });
 });
