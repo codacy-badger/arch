@@ -6,5 +6,5 @@ export interface Record {
   level: LogLevel;
   channel: string;
   datetime: Date;
-  extra: object;
+  extra: any;
 }

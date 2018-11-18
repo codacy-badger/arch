@@ -4,6 +4,7 @@ import {ConsoleHandler} from "../src/Handler/ConsoleHandler";
 import {LogLevel} from "@arch/contracts";
 import {VoidHandler} from "../src/Handler/VoidHandler";
 import * as sinon from 'sinon';
+import {VoidProcessor} from "../src/Processor/VoidProcessor";
 
 describe('LoggerTest', () => {
   describe('#constructor(), #getName()', () => {
@@ -21,6 +22,15 @@ describe('LoggerTest', () => {
       logger.addHandler(new ConsoleHandler());
       expect(logger.getHandlers().length).to.equal(1);
       expect(logger.getHandlers()[0]).to.be.an.instanceOf(ConsoleHandler);
+    });
+  });
+
+  describe('#addProcessor', () => {
+    it('should add a processor', () => {
+      const logger = new Logger('foobar');
+      logger.addProcessor(new VoidProcessor());
+      expect(logger.getProcessors().length).to.equal(1);
+      expect(logger.getProcessors()[0]).to.be.an.instanceOf(VoidProcessor);
     });
   });
 
