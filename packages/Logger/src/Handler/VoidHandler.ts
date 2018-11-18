@@ -3,11 +3,11 @@ import {LogLevel} from "@arch/contracts";
 import {Record} from "../Record";
 
 export class VoidHandler implements HandlerInterface {
-  handle(record: Record) {
+  public handle(record: Record) {
     return true;
   }
 
-  isHandling(level: LogLevel) {
+  public isHandling(level: LogLevel) {
     return true;
   }
 }
