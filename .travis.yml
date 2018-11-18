@@ -10,7 +10,7 @@ cache:
 
 before_install:
   - travis_retry npm install
-  - node_modules/.bin/lerna bootstrap
+  - travis_retry node_modules/.bin/lerna bootstrap
 
 script:
   - npm run lint
