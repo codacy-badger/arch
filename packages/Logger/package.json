@@ -4,5 +4,8 @@
   "private": true,
   "dependencies": {
     "@arch/contracts": "0.1.0"
+  },
+  "devDependencies": {
+    "sinon": "^7.1.1"
   }
 }
