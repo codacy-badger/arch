@@ -2,6 +2,11 @@
   "extends": [
     "tslint:recommended"
   ],
+  "linterOptions": {
+    "exclude": [
+      "*Test.ts"
+    ]
+  },
   "rules": {
     "ordered-imports": [false],
     "interface-name": [false],
