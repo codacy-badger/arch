@@ -10,8 +10,8 @@ export class Logger implements LoggerInterface {
 
   public constructor(
     protected name: string,
-    protected handlers: HandlerInterface[]     = [],
-    protected processors: ProcessorInterface[] = []) {
+    protected handlers: Array<HandlerInterface>     = [],
+    protected processors: Array<ProcessorInterface> = []) {
   }
 
   public getName(): string {
@@ -22,7 +22,7 @@ export class Logger implements LoggerInterface {
     this.handlers.push(handler);
   }
 
-  public getHandlers(): HandlerInterface[] {
+  public getHandlers(): Array<HandlerInterface> {
     return this.handlers;
   }
 
@@ -30,7 +30,7 @@ export class Logger implements LoggerInterface {
     this.processors.push(processor);
   }
 
-  public getProcessors(): ProcessorInterface[] {
+  public getProcessors(): Array<ProcessorInterface> {
     return this.processors;
   }
 

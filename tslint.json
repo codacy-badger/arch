@@ -5,6 +5,7 @@
   "rules": {
     "ordered-imports": [false],
     "interface-name": [false],
-    "quotemark": [false]
+    "quotemark": [false],
+    "array-type": [true, "generic"]
   }
 }
