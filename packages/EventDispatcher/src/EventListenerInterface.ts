@@ -1,3 +1,5 @@
+import {Event} from "./Event";
+
 export interface EventListenerInterface {
-  handle(): boolean;
+  handle(event: Event): boolean;
 }
