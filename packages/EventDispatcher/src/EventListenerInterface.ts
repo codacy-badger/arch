@@ -1,5 +1,5 @@
-import {Event} from "./Event";
+import {AbstractEvent} from "./AbstractEvent";
 
 export interface EventListenerInterface {
-  handle(event: Event): boolean;
+  handle(event: AbstractEvent): boolean;
 }

@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import {EventDispatcher} from "..";
 import {EventListenerInterface} from "../src/EventListenerInterface";
 import * as sinon from 'sinon';
+import {AbstractEvent} from "../src/AbstractEvent";
 
 describe('EventDispatcherTest', () => {
   class FooEventListener implements EventListenerInterface {
@@ -56,6 +57,27 @@ describe('EventDispatcherTest', () => {
       dispatcher.dispatch('bar');
       expect(barEventSpy.called).to.be.true;
       expect(foobarEventSpy.called).to.be.false;
+    });
+
+    it('should allow for event modifications', () => {
+      class FooEvent extends AbstractEvent {
+        constructor(public str: string) {
+          super();
+        }
+      }
+
+      class ModFooEventListener implements EventListenerInterface {
+        public handle(fooEvent: FooEvent) {
+          fooEvent.str = 'hello';
+          return true;
+        }
+      }
+
+      const dispatcher = new EventDispatcher();
+      dispatcher.addListener('foo', new ModFooEventListener());
+      const evt = new FooEvent('foo');
+      dispatcher.dispatch('foo', evt);
+      expect(evt.str).to.equal('hello');
     });
   });
 

@@ -1,8 +1,8 @@
 import {EventListenerInterface} from "./EventListenerInterface";
-import {Event} from "./Event";
+import {AbstractEvent} from "./AbstractEvent";
 
 export interface EventDispatcherInterface {
-  dispatch(eventName: string, event: Event);
+  dispatch(eventName: string, event: AbstractEvent);
 
   addListener(eventName: string, listener: EventListenerInterface, priority: number);
 

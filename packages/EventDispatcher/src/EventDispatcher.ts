@@ -1,6 +1,6 @@
 import {EventDispatcherInterface} from "./EventDispatcherInterface";
 import {EventListenerInterface} from "./EventListenerInterface";
-import {Event} from "./Event";
+import {AbstractEvent} from "./AbstractEvent";
 
 export class EventDispatcher implements EventDispatcherInterface {
   protected listeners: Array<{ eventName: string, listener: EventListenerInterface, priority?: number }> = [];
@@ -9,7 +9,7 @@ export class EventDispatcher implements EventDispatcherInterface {
     this.listeners.push({ eventName, listener, priority });
   }
 
-  public dispatch(eventName: string, event?: Event) {
+  public dispatch(eventName: string, event?: AbstractEvent) {
     this.listeners
       .filter((listener) => listener.eventName)
       .some((listener) => {
