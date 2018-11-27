@@ -3,7 +3,7 @@ import {EventListener} from "../../src/Decorator/EventListener";
 import {Metadata} from "../../../Metadata";
 
 describe('EventListenerTest', () => {
-  describe('@EventListener', () => {
+  describe('@EventListener()', () => {
     it('should be a decorator', () => {
       expect(EventListener).to.be.an.instanceOf(Function);
       expect(EventListener('')).to.be.an.instanceOf(Function);
